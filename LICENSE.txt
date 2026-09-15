@@ -20,7 +20,10 @@ Os desenvolvedores originais não possuem qualquer obrigação legal de prestar 
 5. TRANSIÇÃO PARA CÓDIGO ABERTO (OPEN SOURCE)
 Caso o IFMS oficialize o uso do Software e deseje, no futuro, alterar os termos desta licença para permitir que outros institutos ou entidades externas utilizem o código (transição para código aberto/Open Source), tal mudança só terá validade legal se houver o consentimento explícito e formal de, no mínimo, 2 (dois) estudantes que estejam ativamente desenvolvendo ou mantendo o projeto naquele período de tempo específico. Este consentimento deverá ser formalizado e registrado em um documento escrito.
 
-6. ISENÇÃO DE RESPONSABILIDADE (DISCLAIMER)
+6. EMPRESAS JUNIORES (EJ) VINCULADAS AO INSTITUTO
+Qualquer Empresa Júnior (EJ) de desenvolvimento de software que opere oficialmente dentro e vinculada ao IFMS tem permissão total e irrestrita para utilizar, modificar, evoluir, gerenciar e comercializar este Software. A EJ retém esses direitos indefinidamente, tendo total liberdade para fazer o que quiser com o código, sujeita apenas aos requisitos de atribuição (Cláusula 2) e ao acordo de royalties em caso de receita comercial direta (Cláusula 3).
+
+7. ISENÇÃO DE RESPONSABILIDADE (DISCLAIMER)
 O SOFTWARE É FORNECIDO "COMO ESTÁ" (AS IS), SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO A GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA E NÃO INFRAÇÃO. EM NENHUM CASO OS AUTORES OU DETENTORES DE DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUER RECLAMAÇÃO, DANOS OU OUTRA RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU OUTRA FORMA, DECORRENTE DE, OU EM CONEXÃO COM O SOFTWARE, SEU USO OU OUTRAS NEGOCIAÇÕES NO SOFTWARE
 
  ENGLISH 
