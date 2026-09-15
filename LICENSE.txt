@@ -1,0 +1,48 @@
+LICENÇA DE USO INSTITUCIONAL RESTRITO
+Copyright (c) 2026 [Isaias Silva, Bruno Barbosa, Gabriel Issao, Amarildo]
+
+Este documento é fornecido em Inglês e Português. Em caso de divergência de interpretação ou disputa legal, o texto em Português prevalecerá.
+
+Por meio desta licença, é concedida permissão para o uso e modificação deste software e de seus arquivos de documentação associados (o "Software"), sujeita estritamente e exclusivamente às condições estabelecidas abaixo:
+
+1. PÚBLICO AUTORIZADO E RESTRIÇÃO DE ESCOPO
+O uso, cópia, modificação e fusão do código-fonte do Software são restritos exclusivamente ao Instituto Federal de Mato Grosso do Sul (IFMS), incluindo seus alunos, professores, servidores e departamentos oficiais. O uso, distribuição ou sublicenciamento por qualquer pessoa ou entidade externa a este instituto é expressamente proibido sob esta licença.
+
+2. ATRIBUIÇÃO E AUTORIA (CRÉDITOS)
+Os nomes dos desenvolvedores originais, reconhecidos como os idealizadores e criadores da base deste Software, bem como o aviso de copyright acima e este aviso de permissão, devem ser mantidos intactos, inalterados e incluídos em todas as cópias, partes substanciais e trabalhos derivados do Software, garantindo o crédito perpétuo aos criadores originais.
+
+3. USO COMERCIAL E ROYALTIES
+O IFMS tem total permissão para utilizar o Software para fins comerciais. No entanto, caso o uso, licenciamento ou integração deste Software gere qualquer tipo de receita financeira direta, fica estabelecida a obrigatoriedade do pagamento de royalties no valor fixo de 0,5% (meio por cento) de todo o valor arrecadado com o Software. Esses royalties deverão ser repassados aos desenvolvedores originais detentores dos direitos autorais.
+
+4. SUPORTE, MANUTENÇÃO E CONTRATAÇÃO
+Os desenvolvedores originais não possuem qualquer obrigação legal de prestar suporte, manutenção, atualizações ou correções de bugs para o Software de forma gratuita. Qualquer assistência técnica ou continuidade no desenvolvimento por parte dos criadores originais só ocorrerá mediante contratação direta específica para este fim, sem que esta licença imponha qualquer dever prévio.
+
+5. TRANSIÇÃO PARA CÓDIGO ABERTO (OPEN SOURCE)
+Caso o IFMS oficialize o uso do Software e deseje, no futuro, alterar os termos desta licença para permitir que outros institutos ou entidades externas utilizem o código (transição para código aberto/Open Source), tal mudança só terá validade legal se houver o consentimento explícito e formal de, no mínimo, 2 (dois) estudantes que estejam ativamente desenvolvendo ou mantendo o projeto naquele período de tempo específico. Este consentimento deverá ser formalizado e registrado em um documento escrito.
+
+6. ISENÇÃO DE RESPONSABILIDADE (DISCLAIMER)
+O SOFTWARE É FORNECIDO "COMO ESTÁ" (AS IS), SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO A GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA E NÃO INFRAÇÃO. EM NENHUM CASO OS AUTORES OU DETENTORES DE DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUER RECLAMAÇÃO, DANOS OU OUTRA RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU OUTRA FORMA, DECORRENTE DE, OU EM CONEXÃO COM O SOFTWARE, SEU USO OU OUTRAS NEGOCIAÇÕES NO SOFTWARE
+
+ ENGLISH 
+
+ This document is provided in English and Portuguese. In case of any divergence of interpretation or legal dispute, the text in Portuguese shall prevail.
+ 
+Permission is hereby granted for the use and modification of this software and its associated documentation files (the "Software"), strictly and exclusively subject to the conditions set forth below:
+
+1. AUTHORIZED AUDIENCE AND SCOPE RESTRICTION
+The use, copying, modification, and merging of the Software's source code are restricted exclusively to the Instituto Federal de Mato Grosso do Sul (IFMS), including its students, teachers, staff, and official departments. The use, distribution, or sublicensing by any person or entity external to this institute is expressly prohibited under this license.
+
+2. ATTRIBUTION AND AUTHORSHIP (CREDITS)
+The names of the original developers, recognized as the creators of the foundation of this Software, as well as the copyright notice above and this permission notice, must be kept intact, unaltered, and included in all copies, substantial portions, and derivative works of the Software, guaranteeing perpetual credit to the original creators.
+
+3. COMMERCIAL USE AND ROYALTIES
+The IFMS has full permission to use the Software for commercial purposes. However, if the use, licensing, or integration of this Software generates any type of direct financial revenue, it is mandatory to pay a fixed royalty of 0.5% (half a percent) of the total amount collected with the Software. These royalties must be paid to the original developers who hold the copyrights.
+
+4. SUPPORT, MAINTENANCE, AND CONTRACTING
+The original developers have no legal obligation to provide free support, maintenance, updates, or bug fixes for the Software. Any technical assistance or continued development by the original creators will only occur through a specific direct contract for this purpose, without this license imposing any prior duty.
+
+5. TRANSITION TO OPEN SOURCE
+If the IFMS officially adopts the Software and wishes, in the future, to alter the terms of this license to allow other institutes or external entities to use the code (transition to Open Source), such change will only be legally valid with the explicit and formal consent of at least 2 (two) students who are actively developing or maintaining the project at that specific time. This consent must be formally recorded in a written document.
+
+6. DISCLAIMER
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
