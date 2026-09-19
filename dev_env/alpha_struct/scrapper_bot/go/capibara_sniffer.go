@@ -6,7 +6,7 @@ import (
 
 				"fmt" 
 				"strings"
-				"github.com/gocolly/colly/v2"
+				"github.com/gocolly/colly"
 				"os"
 				"path/filepath" 
 				"encoding/json"
@@ -54,13 +54,12 @@ depth_collector.OnHTML("a[href]", func(edital_html_element *colly.HTMLElement) {
 	edital_link := edital_html_element.Attr("href")
 	edital_link = edital_html_element.Request.AbsoluteURL(edital_link)
 
-	if strings.Contains(edital_link, "edital")
-		|| strings.Contains(edital_link, "Edital") 
-		|| strings.Contains(edital_link, "EDITAL" ) {
+	if strings.Contains(edital_link, "edital")||
+		 strings.Contains(edital_link, "Edital")||
+		 strings.Contains(edital_link, "EDITAL" ){
 			depth_collector.Visit(edital_link) 
 	  }
-  }
-)
+  })
 
 				
 	depth_collector.OnResponse(func(download *colly.Response) {
@@ -82,8 +81,7 @@ depth_collector.OnHTML("a[href]", func(edital_html_element *colly.HTMLElement) {
 	
 	file_log = append(file_log, log_file)
 
-	}
-)	
+	})	
 		
 	depth_collector.OnScraped(func(download *colly.Response){
 		json_data , download_failure_handler := json.MarshalIndent(file_log, "", "\t")
@@ -93,8 +91,7 @@ depth_collector.OnHTML("a[href]", func(edital_html_element *colly.HTMLElement) {
 			fmt.Println(" Debug ___ Json saved to:", json_path) }else{
 				panic("depth_colector failed to save, download_save_handler ")
 			}
-		}
-	)
+		})
 
 	surface_collector.Visit("https://selecao.ifms.edu.br/destaques/todos")
 
