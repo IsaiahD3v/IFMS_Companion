@@ -1,30 +1,32 @@
-// Package capibara_sniffer provides the sniffer implementation used by the scraper bot.
-
 package main
 
+// importing go libs
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gocolly/colly"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/gocolly/colly/v2"
 )
 
+// defining the structure for saving in the json
 type file_log_origin struct {
 	EditalName string `json:"edital_name"`
 	EditalLink string `json:"edital_link"`
 }
 
+// starting the main func
 func main() {
-
+	// defining the path for editals download
 	buffer_rotationary_dir := "/workspaces/IFMS_Companion/dev_env/alpha_struct/buffer_rotationary_dir"
 
 	var file_log []file_log_origin
 
 	fmt.Println("capibara siniffer is scavaging")
 	fmt.Println("debug: ___ ")
-
+	//creating the colectors (they are the actual web crawiling and the agents that do actions such as download)
 	surface_collector := colly.NewCollector(
 		colly.MaxDepth(1),
 		colly.AllowedDomains("selecao.ifms.edu.br"),
@@ -44,11 +46,12 @@ func main() {
 				html_element_link.Request.AbsoluteURL(link))
 		}
 	})
-
+	/*commanding the colectors to go trough the page on the html tag (a link)
+	  and store it to the edital_link var*/
 	depth_collector.OnHTML("a[href]", func(edital_html_element *colly.HTMLElement) {
 		edital_link := edital_html_element.Attr("href")
 		edital_link = edital_html_element.Request.AbsoluteURL(edital_link)
-
+		// send depth_colector to that download page
 		if strings.Contains(edital_link, "edital") ||
 			strings.Contains(edital_link, "Edital") ||
 			strings.Contains(edital_link, "EDITAL") {
@@ -57,9 +60,9 @@ func main() {
 	})
 
 	depth_collector.OnResponse(func(download *colly.Response) {
-		edital_name := download.FileName() //or FileName
+		edital_name := download.FileName()
 		edital_link := download.Request.URL.String()
-
+		// colector downloads the file
 		content_type := download.Headers.Get("Content-Type")
 		if !strings.Contains(content_type, "pdf") {
 			return
@@ -87,9 +90,13 @@ func main() {
 			panic("depth_colector failed to save, download_save_handler ")
 		}
 	})
+	// json handling
 
 	surface_collector.Visit("https://selecao.ifms.edu.br/destaques/todos")
 
 }
 
-//download.Save(download.FileName(buffer_rotationary_dir))
+// missing error handler
+// missing better comments
+// good for prototype
+// maybe better var names 
