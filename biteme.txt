@@ -1,0 +1,4 @@
+llama
+
+4 treass of cpui
+use 2 lock 2 for the os and the rest of the operations

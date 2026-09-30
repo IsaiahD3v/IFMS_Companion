@@ -1,0 +1,5 @@
+Workflow Orchestrator (or DAG Scheduler): 
+This is the most accurate term if the scheduler manages complex dependencies between the services 
+(e.g., ensuring text_process_service only runs after scrapper_bot_service completes successfully). 
+These systems define tasks as a Directed Acyclic Graph (DAG).
+ Industry examples include Apache Airflow, Prefect, or Dagster.
