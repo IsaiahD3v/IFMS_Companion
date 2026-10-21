@@ -1,0 +1,142 @@
+package main
+
+// Reads matches that have not been notified yet, emails each student,
+// and records the notification so it is never sent twice.
+//
+// Setup:
+//   go mod init email_sender
+//   go get github.com/jackc/pgx/v5
+//
+// Environment variables:
+//   DATABASE_URL  postgres://reader:password@localhost:5432/app
+//   SMTP_HOST     smtp.gmail.com
+//   SMTP_PORT     587
+//   SMTP_USER     your_login
+//   SMTP_PASS     your_app_password
+//   SMTP_FROM     you@example.com
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"mime"
+	"net/mail"
+	"net/smtp"
+	"os"
+	"strings"
+
+	"github.com/jackc/pgx/v5"
+)
+
+const pending_query = `
+SELECT m.email, m.link, m.release_date
+FROM matches m
+LEFT JOIN notified n ON n.email = m.email AND n.link = m.link
+WHERE n.email IS NULL`
+
+type pending_match struct {
+	email        string
+	link         string
+	release_date string
+}
+
+func must_env(key string) string {
+	value := os.Getenv(key)
+	if value == "" {
+		log.Fatalf("missing environment variable %s", key)
+	}
+	return value
+}
+
+func load_pending(ctx context.Context, conn *pgx.Conn) ([]pending_match, error) {
+	rows, err := conn.Query(ctx, pending_query)
+	if err != nil {
+		return nil, err
+	}
+	// CollectRows reads everything and closes the rows, so the
+	// connection is free again for the inserts below.
+	return pgx.CollectRows(rows, func(row pgx.CollectableRow) (pending_match, error) {
+		var m pending_match
+		err := row.Scan(&m.email, &m.link, &m.release_date)
+		return m, err
+	})
+}
+
+func send_email(smtp_addr string, auth smtp.Auth, from string, m pending_match) error {
+	// Parsing the address also rejects anything with line breaks,
+	// which protects against header injection.
+	to, err := mail.ParseAddress(m.email)
+	if err != nil {
+		return fmt.Errorf("invalid address %q: %w", m.email, err)
+	}
+
+	subject := mime.QEncoding.Encode("utf-8", "Novo edital do IFMS para você")
+	body := fmt.Sprintf(
+		"Olá!\r\n\r\nSaiu um edital (%s) que combina com o seu perfil:\r\n%s\r\n",
+		m.release_date, m.link,
+	)
+
+	msg := strings.Join([]string{
+		"From: " + from,
+		"To: " + to.Address,
+		"Subject: " + subject,
+		"MIME-Version: 1.0",
+		"Content-Type: text/plain; charset=UTF-8",
+		"",
+		body,
+	}, "\r\n")
+
+	return smtp.SendMail(smtp_addr, auth, from, []string{to.Address}, []byte(msg))
+}
+
+func main() {
+	ctx := context.Background()
+
+	conn, err := pgx.Connect(ctx, must_env("DATABASE_URL"))
+	if err != nil {
+		log.Fatalf("database connection failed: %v", err)
+	}
+	defer conn.Close(ctx)
+
+	smtp_host := must_env("SMTP_HOST")
+	smtp_port := must_env("SMTP_PORT")
+	smtp_user := must_env("SMTP_USER")
+	smtp_pass := must_env("SMTP_PASS")
+	smtp_from := must_env("SMTP_FROM")
+
+	auth := smtp.PlainAuth("", smtp_user, smtp_pass, smtp_host)
+	smtp_addr := smtp_host + ":" + smtp_port
+
+	pending, err := load_pending(ctx, conn)
+	if err != nil {
+		log.Fatalf("loading pending matches failed: %v", err)
+	}
+	log.Printf("%d pending notification(s)", len(pending))
+
+	sent := 0
+	for _, m := range pending {
+		if err := send_email(smtp_addr, auth, smtp_from, m); err != nil {
+			// Not recorded as notified, so the next run retries it.
+			log.Printf("send to %s failed: %v", m.email, err)
+			continue
+		}
+
+		_, err := conn.Exec(ctx,
+			`INSERT INTO notified (email, link) VALUES ($1, $2)
+			 ON CONFLICT DO NOTHING`,
+			m.email, m.link)
+		if err != nil {
+			// The email went out but was not recorded; fix this
+			// quickly or the student will get a duplicate next run.
+			log.Printf("recording notification for %s failed: %v", m.email, err)
+			continue
+		}
+		sent++
+	}
+
+	log.Printf("done: %d sent, %d failed", sent, len(pending)-sent)
+}
+
+
+//this is in go 
+//this is a sample code for sending email notifications to students about new matches in the IFMS system. It connects to a PostgreSQL database, retrieves pending matches that have not been notified yet, sends an email to each student, and records the notification in the database to prevent duplicate notifications. The code uses environment variables for configuration, including database connection details and SMTP server credentials.
