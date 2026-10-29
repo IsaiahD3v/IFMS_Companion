@@ -1,0 +1,18 @@
+well curentely scheduler process is basically aprocess that runs ther right processes at the the right time
+
+this is how i intended it i will not go in detail as it can be 
+inferred from previous documentation 
+
+so everythibg is emcaosukated inside the  scheduler process which isnt really a schedyer byt ok 
+scraper bot i sdon iis 
+
+scraper bot download pdfs to the folder editals rotatironary editalls
+insde the same folders theres a jspm tjat keeps the download link 
+
+the core iof the system records personal experience
+
+i need ot do the ext process servoce tha torganize ho wmany optuals go in the coubtr
+ it converts everythibg inclyudibg link and ti cacasgu 
+
+ exenoke u was lik chidor yse ynaiu i cryed because ub tider to save rubate d we du ti scrufy natyti 
+ 
